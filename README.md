@@ -7,13 +7,9 @@ The challenge is to create an application that enables a user to generate random
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+The following image shows the web application's appearance and functionality:
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+![The Password Generator application displays a red button to "Generate Password".](./Assets/03-javascript-homework-demo.png)
 
 ## Credits
 
