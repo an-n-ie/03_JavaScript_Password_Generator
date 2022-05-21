@@ -17,5 +17,6 @@ https://www.w3schools.com/js/default.asp
 ## URL
 
 GitHub: https://github.com/an-n-ie/03_JavaScript_Password_Generator
+
 Website: https://an-n-ie.github.io/03_JavaScript_Password_Generator/
 
