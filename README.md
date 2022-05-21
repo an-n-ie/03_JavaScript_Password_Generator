@@ -2,13 +2,12 @@
 
 ## Description
 
-An application that enables a user to generate random passwords based on criteria that they’ve selected. 
+A web application that enables the user to generate a random password based on criteria that they’ve selected. 
 
 ## Usage
+The following image shows the application's appearance and functionality:
 
-The following image shows the web application's appearance and functionality:
-
-![The Password Generator](./Assets/03-javascript-homework-demo.png)
+![The Password Generator](./Assets/image/pwd-gen.png)
 
 ## Credits
 
