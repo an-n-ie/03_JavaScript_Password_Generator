@@ -1,84 +1,68 @@
-
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
-// WHEN all prompts are answered
-// THEN a password is generated that matches the selected criteria
-// WHEN the password is generated
-// THEN the password is either displayed in an alert or written to the page
-
-// Assignment Code
 var generateBtn = document.querySelector("#generate");
 var lowercase = "abcdefghijklmnopqrstuvwxyz"
 var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var number = "0123456789"
 var special = "!@#$%^&*()"
+var finalPwd = ""
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
 
 function generatePassword() {
-  var finalPwd = ""
+    var userChoice = "";
 
-  // Prompt user to choose length of the password; at least 8 characters and no more than 128
-  var size = prompt("Number of characters? (minimum 8, maximum 128)")
-  console.log(size)
+// Prompt user to choose length of the password; at least 8 characters and no more than 128
+    var size = parseInt(prompt("Number of characters? (minimum 8, maximum 128)"))
+    console.log(size)
 
-  if (size >= 8 && size <= 128) {
+    if (size >= 8 && size <= 128) {
 
-    // Prompt user to confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-    var isLowercase = confirm("Include lowercase?")
-    console.log(isLowercase)
-    var isUppercase = confirm("Include uppercase?")
-    console.log(isUppercase)
-    var isNumber = confirm("Include number?")
-    console.log(isNumber)
-    var isSpecial = confirm("Include special character?")
-    console.log(isSpecial)
+// Prompt user to confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
+        var isLowercase = confirm("Include lowercase?")
+        console.log(isLowercase)
+        var isUppercase = confirm("Include uppercase?")
+        console.log(isUppercase)
+        var isNumber = confirm("Include number?")
+        console.log(isNumber)
+        var isSpecial = confirm("Include special character?")
+        console.log(isSpecial)
 
-    for (var i = 0; i < size; i++) {
+        if (isLowercase === true) {
+            userChoice += lowercase; 
+        }
+        if (isUppercase === true) {
+            userChoice += uppercase; 
+        }
+        if (isNumber === true) {
+            userChoice += number; 
+        }
+        if (isSpecial === true) {
+            userChoice += special;
+        }
+
+        console.log("Userchoice", userChoice)
+
+        for (var i = 0; i < size; i++) {
+
+            var randomizer = Math.floor(Math.random() * userChoice.length)
+            console.log("randomizer", randomizer)
+
+            finalPwd += userChoice.charAt(randomizer)
+            console.log(finalPwd)
+        }
+
+        var password = finalPwd;
+        var passwordText = document.querySelector("#password");
+
+        passwordText.value = password;
 
 
 
-      if (isLowercase === true && finalPwd.length<size) {
-        var positionString = Math.floor(Math.random() * lowercase.length)
-        console.log(positionString)
-        finalPwd = finalPwd + lowercase[positionString]
-      }
-      if (isUppercase === true && finalPwd.length<size) {
-        var positionString = Math.floor(Math.random() * uppercase.length)
-        console.log(positionString)
-        finalPwd = finalPwd + uppercase[positionString]
-      }
-      if (isNumber === true && finalPwd.length<size) {
-        var positionString = Math.floor(Math.random() * number.length)
-        console.log(positionString)
-        finalPwd = finalPwd + number[positionString]
-      }
-      if (isSpecial === true && finalPwd.length<size) {
-        var positionString = Math.floor(Math.random() * special.length)
-        console.log(positionString)
-        finalPwd = finalPwd + special[positionString]
-      }
-
+// Add error alert if number of characters isn't 8-128
+    } else {
+        alert("Please choose number of characters between 8 and 128!")
+        return;
     }
-  }
-
-
-
-
-  else {
-    alert("Invalid entry")
-  }
-
-  return finalPwd
 }
 
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", generatePassword);
